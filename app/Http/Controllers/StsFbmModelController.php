@@ -16,18 +16,11 @@ class StsFbmModelController extends Controller
      */
     public function index(StoreStsFbmModelRequest $request)
     {
-        //
+        //Retrieve value from query parameters
         $mode = $request->input('hub_mode');
         $token = $request->input('hub_verify_token');
         $challenge = $request->input('hub_challenge');
-        // echo $mode;
-        // echo $token;
         return $challenge;
-
-
-
-        //get; json
-        return StsFbmModel::all();
     }
 
     /**
@@ -48,26 +41,7 @@ class StsFbmModelController extends Controller
      */
     public function store(StoreStsFbmModelRequest $request)
     {
-        //
-        $mode = $request->input('hub_mode');
-        $token = $request->input('hub_verify_token');
-        $challenge = $request->input('hub_challenge');
-        // echo $mode;
-        // echo $token;
-        return $challenge;
-
-
-        // Ito for specific targetting ng posted data or ibang pangalan ng posted data compared sa table column name
-        // example 'name_user' ang posted data sa table mo 'name' lang.
-        // $stsfbmModel = new StsFbmModel();
-        // $stsfbmModel->name=$request->input('name');
-        // $stsfbmModel->name=$request->input('description');
-
-        // $stsfbmModel->save();
-
-        // Gamitin lang ito kapag ang value na pinapasa mo or input data ay kapareho ng mga table column mo.
-        // Example: ang pinasa mong data ay may 'name' dapat yung sa table mo 'name' din ang column
-        // StsFbmModel::create($request->all());
+        
     }
 
     /**
@@ -78,16 +52,7 @@ class StsFbmModelController extends Controller
      */
     public function show($request)
     {
-        //
-        $mode = $request->input('hub_mode');
-        $token = $request->input('hub_verify_token');
-        $challenge = $request->input('hub_challenge');
-        // echo $mode;
-        // echo $token;
-        return $challenge;
-
-        
-        // return StsFbmModel::find($stsFbmModel);
+    
     }
 
     /**
@@ -98,7 +63,7 @@ class StsFbmModelController extends Controller
      */
     public function edit(StsFbmModel $stsFbmModel)
     {
-        //
+    
     }
 
     /**
@@ -110,9 +75,7 @@ class StsFbmModelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-        StsFbmModel::where('id', $id)
-            ->update(['name' => $request->input('name'), 'description' => $request->input('description')]);
+    
     }
 
 
@@ -124,7 +87,6 @@ class StsFbmModelController extends Controller
      */
     public function destroy($id)
     {
-        //
-        StsFbmModel::find($id)->delete();
+
     }
 }
