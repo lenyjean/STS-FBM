@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StsFbmModelController;
+use App\Http\Controllers\ProductModelController;
+use App\Models\ProductModel;
 
 /*
 |--------------------------------------------------------------------------
