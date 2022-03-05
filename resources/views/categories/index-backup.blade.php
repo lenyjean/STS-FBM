@@ -1,13 +1,13 @@
-@extends('products.layout')
+@extends('categories.layout')
 
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>STS - FBM CRUD APPLICATION</h2>
+                <h2>Category Module</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('products.create') }}"> Create New Product</a>
+                <a class="btn btn-success" href="{{ route('categories.create') }}"> Create New Category</a>
             </div>
         </div>
     </div>
@@ -20,26 +20,20 @@
 
     <table class="table table-bordered">
         <tr>
-            <th>Product ID</th>
-            <th>Label</th>
-            <th>Quantity</th>
-            <th>Price</th>
+            <th>Category ID</th>
             <th>Category</th>
             <th width="280px">Action</th>
         </tr>
-        @foreach ($products as $product)
+        @foreach ($categories as $categories)
             <tr>
                 <td>{{ ++$i }}</td>
-                <td>{{ $product->label }}</td>
-                <td>{{ $product->quantity }}</td>
-                <td>{{ $product->price }}</td>
-                <td>{{ $product->category }}</td>
+                <td>{{ $categories->categories }}</td>
                 <td>
-                    <form action="{{ route('products.destroy', $product->id) }}" method="POST">
+                    <form action="{{ route('categories.destroy', $categories->id) }}" method="POST">
 
-                        <a class="btn btn-info" href="{{ route('products.show', $product->id) }}">Show</a>
+                        <a class="btn btn-info" href="{{ route('categories.show', $categories->id) }}">Show</a>
 
-                        <a class="btn btn-primary" href="{{ route('products.edit', $product->id) }}">Edit</a>
+                        <a class="btn btn-primary" href="{{ route('categories.edit', $categories->id) }}">Edit</a>
 
                         @csrf
                         @method('DELETE')

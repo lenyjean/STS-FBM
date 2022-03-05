@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\StsFbmModelController;
+use App\Models\StsFbmModel;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,17 +18,35 @@ use App\Http\Controllers\ProductController;
 */
 
 //route group
-// Route::middleware(['auth'])->group(function () {
-// });
+Route::middleware(['auth'])->group(function () {
+
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+
+    Route::resource('products', ProductController::class);
+
+    Route::resource('categories', CategoryController::class, [
+        'names' => [
+            'index' => 'categories.index',
+            'store' => 'categories.store',
+            'create' => 'categories.create',
+            'update' => 'categories.update',
+            'destroy' => 'categories.destroy',
+            'edit' => 'categories.edit'
+        ]
+    ]);
+
+});
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
 
 require __DIR__ . '/auth.php';
 
-Route::resource('products', ProductController::class);
+
+
+
